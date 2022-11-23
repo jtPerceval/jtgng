@@ -1,0 +1,46 @@
+params:
+  - { name: ZERO_OFFSET, value: "22'd0"}
+  - { name: SCR1_OFFSET, value: "22'h10_0000"}
+  - { name: SCR2_OFFSET, value: "22'h02_0000"}
+  - { name: OBJ_OFFSET, value: "22'h10_0000"}
+sdram:
+  banks:
+    -
+      buses:
+        -
+          name: main
+          addr_width: 17
+          data_width: 16
+    -
+      buses:
+        -
+          name: snd
+          addr_width: 15
+          data_width:  8
+    -
+      buses:
+        -
+          name: char
+          addr_width: 13
+          data_width: 16
+          offset: ZERO_OFFSET
+          cs: LVBL
+        -
+          name: scr1
+          addr_width: 17
+          data_width: 16
+          offset: SCR1_OFFSET 
+          cs: LVBL
+    -
+      buses: 
+        -
+          name: scr2
+          addr_width: 15
+          data_width: 16
+          offset: SCR2_OFFSET
+          cs: LVBL
+        -
+          name: obj 
+          addr_width: 17
+          data_width: 16
+          offset: OBJ_OFFSET
