@@ -183,17 +183,6 @@ always @(posedge clk)
 always @(posedge clk)
     t80_rst_n <= ~rst;
 
-`ifdef SIMULATION
-wire [7:0] random;
-
-noise_gen u_noise(
-    .rst    ( rst    ),
-    .clk    ( clk    ),
-    .cen    ( cen3   ),
-    .noise  ( random )
-);
-`endif
-
 reg [7:0] cabinet_input;
 
 always @(*)
@@ -298,7 +287,11 @@ jtframe_z80wait #(2) u_wait(
     .dev_busy   ( { scr_busy, char_busy } ),
     // manage access to ROM data from SDRAM
     .rom_cs     ( rom_cs    ),
-    .rom_ok     ( rom_ok    )
+    .rom_ok     ( rom_ok    ),
+    .gate       (           ),
+    .mreq_n     (           ),
+    .iorq_n     (           ),
+    .busak_n    (           )
 );
 
 jtframe_z80 u_cpu(

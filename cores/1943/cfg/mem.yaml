@@ -1,0 +1,48 @@
+params:
+  - { name: CHAR_OFFSET, value: "22'h1_8000>>1" }
+  - { name: MAP1_OFFSET, value: "22'h1_C000>>1" }
+  - { name: SCR1_OFFSET, value: "22'h2_4000>>1" }
+  - { name: MAP2_OFFSET, value: "22'h2_0000>>1" }
+  - { name: SCR2_OFFSET, value: "22'h4_4000>>1" }
+  - { name:  OBJ_OFFSET, value: "22'h4_C000>>1" }
+sdram:
+  banks:
+    -
+      buses:
+        -
+          name: char
+          addr_width: 14
+          data_width: 16
+          offset: CHAR_OFFSET
+          cs: LVBL
+        -
+          name: map1
+          addr_width: 14
+          data_width: 16
+          offset: MAP1_OFFSET
+        -
+          name: scr1
+          addr_width: 17
+          data_width: 16
+          offset: SCR1_OFFSET
+          cs: LVBL
+        -
+          name: map2
+          addr_width: 14
+          data_width: 16
+          offset: MAP2_OFFSET
+        -
+          name: scr2
+          addr_width: 15
+          data_width: 16
+          offset: SCR2_OFFSET
+          cs: LVBL
+        -
+          name: obj
+          addr_width: 17
+          data_width: 16
+          offset: OBJ_OFFSET
+        -
+          name: main
+          addr_width: 18
+          data_width: 8

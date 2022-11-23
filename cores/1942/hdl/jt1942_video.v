@@ -99,7 +99,8 @@ jtgng_timer u_timer(
     .LHBL_obj  ( LHBL_obj ),
     .HS        ( HS       ),
     .VS        ( VS       ),
-    .Vinit     (          )
+    .Vinit     (          ),
+    .LVBL_obj  (          )
 );
 
 jtgng_char #(
